@@ -1,0 +1,60 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <OutputType>WinExe</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="DragController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="IpUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="SpecsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="TweaksControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControl2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControl3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControl4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControl5.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\layers-fill-svg %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolbox-repairing-icon %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="a.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Cake.Powershell" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="9.0.0" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.PowerShell.SDK" Version="7.4.6" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    <PackageReference Include="System.IO.Pipelines" Version="9.0.0" />
+    <PackageReference Include="System.Management" Version="9.0.1" />
+    <PackageReference Include="System.Management.Automation" Version="7.4.6" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
+    <PackageReference Include="System.Text.Encodings.Web" Version="9.0.0" />
+    <PackageReference Include="System.Text.Json" Version="9.0.0" />
+  </ItemGroup>
+</Project>

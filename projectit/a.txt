@@ -1,0 +1,28 @@
+local ips 
+-turn listbox to listview catagories name,ip,manufacturer,mac address
+-access shared files folders via ip on local computers
+Optimization
+-shutoo10 +	
+-create restore point
+-disable gamedvr +
+-disable hibernation +
+-disable homegroup +
+-disable location tracking +
+-disable wifi-sense +
+-enable end task right click
+-run disk cleanup +
+-debloat edge +
+-disable microsoft copilot +
+-show hidden files +
+-show file extensions +
+legacy panels
+-control panel
+-network connections
+-power panel
+-printer panel
+-region
+-sound settings
+-system properties
+-user accounts
+-setup autologin
+-updates security only
