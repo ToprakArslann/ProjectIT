@@ -3,7 +3,7 @@ local ips
 -access shared files folders via ip on local computers
 Optimization
 -shutoo10 +	
--create restore point
+-create restore point +
 -disable gamedvr +
 -disable hibernation +
 -disable homegroup +
@@ -19,7 +19,7 @@ legacy panels
 -control panel
 -network connections
 -power panel
--printer panel
+-printr panel
 -region
 -sound settings
 -system properties

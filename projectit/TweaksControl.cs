@@ -19,6 +19,7 @@ using System.Management.Automation.Runspaces;
 using Microsoft.PowerShell.Commands;
 using System.Net;
 using System.IO;
+using System.Net.NetworkInformation;
 
 
 
@@ -32,8 +33,10 @@ namespace projectit
             InitializeComponent();
         }
         
+        // Shortcut To Access TEMP Folder.
         public string tempPath = Path.GetTempPath();
-        
+
+        // Click Event For All Tweaks Buttons.
         private void tweaks_click(object sender, EventArgs e)
         {
             
@@ -42,20 +45,18 @@ namespace projectit
             Button btn = (Button)sender;
             switch (btn.Name)
             {
+                // O&O ShutUp 10
                 case "shut10Btn":
                     if (File.Exists(tempPath + "OOSU10.exe"))
                     {
-                        foreach (var process in Process.GetProcessesByName("OOSU10.exe"))
-                        {
-                            process.Kill();
-                        }
-                        Process.Start(tempPath + "OOSU10.exe");          
+                        Process.Start(tempPath + "OOSU10.exe");
                     }
                     else
                     {
                         Download_OOSU10();
                     }
                     break;
+                // Disable GameDVR Tweak.
                 case "gamedvrBtn":
                     try
                     {
@@ -82,6 +83,7 @@ namespace projectit
 
                     }
                     break;
+                // Disable Hibernation Tweak.
                 case "hibernationBtn":
                    
                     string hibernationScript = "powercfg.exe /hibernate off";
@@ -107,14 +109,16 @@ namespace projectit
                         MessageBox.Show("An Error Occurred While Disabling Hibernation.", "ProjectIT", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     break;
+                // Disable HomeGroup Tweak.
                 case "homegroupBtn":
-                    string Listener = $"sc config \"HomeGroupListener\" start= demand";
-                    string Provider = $"sc config \"HomeGroupProvider\" start= demand";
+                    string Listener = $"Set-Service -Name HomeGroupListener -StartupType Manual"; 
+                    string Provider = $"Set-Service -Name HomeGroupProvider -StartupType Manual";
                     ps.AddScript(Listener).Invoke();
                     ps.AddScript(Provider).Invoke();
                     MessageBox.Show("Successfully Disabled Home Group.", "ProjectIT", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     break;
+                // Disable Location Tracking Tweak.
                 case "locationTrackingBtn":
                     counter = 0;
                     try
@@ -161,6 +165,7 @@ namespace projectit
                         MessageBox.Show("An Error Occured While Disabling Location Tracking", "ProjectIT", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     break;
+                // Disable Wifi-Sense Tweak.
                 case "wifisenseBtn":
                     counter = 0;
                     try
@@ -192,6 +197,7 @@ namespace projectit
                         MessageBox.Show("An Error Occured While Disabling wifi-sense.", "ProjectIT", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     break;
+                // Disk CleanUp Tweak.
                 case "diskCleanupBtn":
                     string cleanUpScript =
                         @"
@@ -200,6 +206,7 @@ namespace projectit
                          ";
                     ps.AddScript(cleanUpScript).Invoke();
                     break;
+                // Debloat Edge Tweak.
                 case "debloatEdgeBtn":
                     try
                     {
@@ -244,6 +251,7 @@ namespace projectit
                         MessageBox.Show("An Error Occured While Debloating Edge.", "ProjectIT", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     break;
+                // Disable Windows Copilot Tweak.
                 case "copilotBtn":
                     try
                     {
@@ -272,11 +280,12 @@ namespace projectit
                         MessageBox.Show("An Error Occured While Disabling Copilot", "ProjectIT", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     break;
+                // Enable Hidden Files Tweak.
                 case "hiddenfilesBtn":
                     try
                     {
-                        RegistryKey folderPath = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", true);
-                        folderPath.SetValue("Hidden", 1);
+                        RegistryKey folderPath = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", true);
+                        folderPath.SetValue("Hidden", 0);
                     }
                     catch (System.Management.Automation.ItemNotFoundException)
                     {
@@ -287,6 +296,7 @@ namespace projectit
                         MessageBox.Show("An Error Occured While Enabling Hidden Files", "ProjectIT", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     break;
+                // Enable File Extensions Tweak.
                 case "fileextensionsBtn":
                     try
                     {
@@ -305,44 +315,64 @@ namespace projectit
             }
         }
 
+        // Process Void For AsyncCompletedEventHandler
         public void Process_OOSU10(object sender, AsyncCompletedEventArgs e)
         {
-            var oosu10 = Process.Start(tempPath + "OOSU10.exe");
-        }
-
-        private void Download_OOSU10()
-        {
-            using (WebClient wc = new WebClient())
-            {
-                wc.DownloadFileAsync(
-                    new System.Uri("https://dl5.oo-software.com/files/ooshutup10/OOSU10.exe"),
-                    tempPath + "OOSU10.exe"
-                    );
-
-                wc.DownloadFileCompleted += new AsyncCompletedEventHandler(Process_OOSU10);
-            }
-        }
-        private async void button1_Click(object sender, EventArgs e)
-        {
-            
             try
             {
-                
-                    
-                using (PowerShell ps = PowerShell.Create())
-                {
-                    
-                    
-                    MessageBox.Show("aaaa");
-                }
-                
+                var oosu10 = Process.Start(tempPath + "OOSU10.exe");
             }
-            catch(Exception ex)
+            catch
             {
-                MessageBox.Show("An error occurred " + ex.Message);
+                MessageBox.Show("An Error Occurred While Running O&O SHUTUP 10.");
             }
-
         }
+        
+        // Boolean For Internet Connection.
+        private bool CheckInternetConnection()
+        {
+            try
+            {
+                using (Ping p = new Ping())
+                {
+                    PingReply ping = p.Send("8.8.8.8");
+                    return ping.Status == IPStatus.Success;
+                }
+            }
+            catch (PingException)
+            {
+                return false;
+            }
+        }
+
+        // Void For Download O&O ShutUp 10.
+        private void Download_OOSU10()
+        {
+            if (CheckInternetConnection())
+            {
+                try
+                {
+                    using (WebClient wc = new WebClient())
+                    {
+                        wc.DownloadFileAsync(
+                            new System.Uri("https://dl5.oo-software.com/files/ooshutup10/OOSU10.exe"),
+                            tempPath + "OOSU10.exe"
+                            );
+
+                        wc.DownloadFileCompleted += new AsyncCompletedEventHandler(Process_OOSU10);
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Error Occurred While Downloading O&O ShutUp 10.", "ProjectIT", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please Check Your Internet Connection.", "ProjectIT", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
         private void TweaksControl_Load(object sender, EventArgs e)
         {
             
