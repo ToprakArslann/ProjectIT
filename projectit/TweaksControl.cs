@@ -32,14 +32,16 @@ namespace projectit
         {
             InitializeComponent();
         }
-        
+
+        private ToolTip toolTip = new ToolTip();
         // Shortcut To Access TEMP Folder.
         public string tempPath = Path.GetTempPath();
 
         // Click Event For All Tweaks Buttons.
         private void tweaks_click(object sender, EventArgs e)
         {
-            
+
+
             int counter;
             PowerShell ps = PowerShell.Create();
             Button btn = (Button)sender;
@@ -58,6 +60,7 @@ namespace projectit
                     break;
                 // Disable GameDVR Tweak.
                 case "gamedvrBtn":
+                    string descDVR = "GameDVR is a Windows App that is a dependency for some Store Games.";
                     try
                     {
                         RegistryKey gameDVR_path = Registry.CurrentUser.OpenSubKey(@"System\\GameConfigStore", true);
@@ -373,6 +376,63 @@ namespace projectit
             }
         }
 
+        // Tooltips for buttons.
+        private void button_hover(object sender, EventArgs e)
+        {
+            int descNumber = 0;
+            string[] descriptions = [
+            "Runs OO Shutup 10 that disables useless services.",
+            "GameDVR is a Windows App that is a dependency for some Store Games.",
+            "Hibernation saves what's in memory before turning the pc off.",
+            "HomeGroup is a password-protected home networking service that lets you share your stuff with other PCs that are currently running and connected to your network.",
+            "Disables Location Tracking",
+            "Wifi Sense is a spying service that phones home all nearby scanned wifi networks and your current geo location.",
+            "Runs Disk Cleanup on Drive C: and removes old Windows Updates.",
+            "Disables various telemetry options, popups, and other annoyances in Edge.",
+            "Disables MS Copilot AI built into Windows since 23H2.",
+            "If Enabled then Hidden Files will be shown.",
+            "If enabled then File extensions (e.g., .txt, .jpg) are visible."];
+            Button button = sender as Button;
+
+            switch (button.Name)
+            {
+                case "shut10Btn":
+                    descNumber = 0;
+                    break;
+                case "gamedvrBtn":
+                    descNumber = 1;
+                    break;
+                case "hibernationBtn":
+                    descNumber = 2;
+                    break;
+                case "homegroupBtn":
+                    descNumber = 3;
+                    break;
+                case "locationTrackingBtn":
+                    descNumber = 4;
+                    break;
+                case "wifisenseBtn":
+                    descNumber = 5;
+                    break;
+                case "diskCleanupBtn":
+                    descNumber = 6;
+                    break;
+                case "debloatEdgeBtn":
+                    descNumber = 7;
+                    break;
+                case "copilotBtn":
+                    descNumber = 8;
+                    break;
+                case "hiddenfilesBtn":
+                    descNumber = 9;
+                    break;
+                case "fileextensionsBtn":
+                    descNumber = 10;
+                    break;
+            }
+            toolTip.SetToolTip(button, descriptions[descNumber]);
+
+        }
         private void TweaksControl_Load(object sender, EventArgs e)
         {
             

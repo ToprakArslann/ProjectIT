@@ -52,9 +52,11 @@
             gamedvrBtn.Name = "gamedvrBtn";
             gamedvrBtn.Size = new System.Drawing.Size(153, 38);
             gamedvrBtn.TabIndex = 0;
+            gamedvrBtn.Tag = "";
             gamedvrBtn.Text = "GameDVR";
             gamedvrBtn.UseVisualStyleBackColor = false;
             gamedvrBtn.Click += tweaks_click;
+            gamedvrBtn.MouseHover += button_hover;
             // 
             // diskCleanupBtn
             // 
@@ -66,9 +68,11 @@
             diskCleanupBtn.Name = "diskCleanupBtn";
             diskCleanupBtn.Size = new System.Drawing.Size(312, 38);
             diskCleanupBtn.TabIndex = 0;
+            diskCleanupBtn.Tag = "";
             diskCleanupBtn.Text = "Disk Cleanup";
             diskCleanupBtn.UseVisualStyleBackColor = false;
             diskCleanupBtn.Click += tweaks_click;
+            diskCleanupBtn.MouseHover += button_hover;
             // 
             // debloatEdgeBtn
             // 
@@ -80,9 +84,11 @@
             debloatEdgeBtn.Name = "debloatEdgeBtn";
             debloatEdgeBtn.Size = new System.Drawing.Size(312, 38);
             debloatEdgeBtn.TabIndex = 0;
+            debloatEdgeBtn.Tag = "";
             debloatEdgeBtn.Text = "Debloat Edge";
             debloatEdgeBtn.UseVisualStyleBackColor = false;
             debloatEdgeBtn.Click += tweaks_click;
+            debloatEdgeBtn.MouseHover += button_hover;
             // 
             // hibernationBtn
             // 
@@ -94,9 +100,11 @@
             hibernationBtn.Name = "hibernationBtn";
             hibernationBtn.Size = new System.Drawing.Size(153, 38);
             hibernationBtn.TabIndex = 0;
+            hibernationBtn.Tag = "";
             hibernationBtn.Text = "Hibernation";
             hibernationBtn.UseVisualStyleBackColor = false;
             hibernationBtn.Click += tweaks_click;
+            hibernationBtn.MouseHover += button_hover;
             // 
             // homegroupBtn
             // 
@@ -108,9 +116,11 @@
             homegroupBtn.Name = "homegroupBtn";
             homegroupBtn.Size = new System.Drawing.Size(153, 38);
             homegroupBtn.TabIndex = 0;
+            homegroupBtn.Tag = "";
             homegroupBtn.Text = "HomeGroup";
             homegroupBtn.UseVisualStyleBackColor = false;
             homegroupBtn.Click += tweaks_click;
+            homegroupBtn.MouseHover += button_hover;
             // 
             // locationTrackingBtn
             // 
@@ -122,9 +132,11 @@
             locationTrackingBtn.Name = "locationTrackingBtn";
             locationTrackingBtn.Size = new System.Drawing.Size(153, 38);
             locationTrackingBtn.TabIndex = 0;
+            locationTrackingBtn.Tag = "";
             locationTrackingBtn.Text = "Tracking";
             locationTrackingBtn.UseVisualStyleBackColor = false;
             locationTrackingBtn.Click += tweaks_click;
+            locationTrackingBtn.MouseHover += button_hover;
             // 
             // shut10Btn
             // 
@@ -136,9 +148,11 @@
             shut10Btn.Name = "shut10Btn";
             shut10Btn.Size = new System.Drawing.Size(312, 38);
             shut10Btn.TabIndex = 0;
+            shut10Btn.Tag = "";
             shut10Btn.Text = "OO ShutUp 10";
             shut10Btn.UseVisualStyleBackColor = false;
             shut10Btn.Click += tweaks_click;
+            shut10Btn.MouseHover += button_hover;
             // 
             // button1
             // 
@@ -150,6 +164,7 @@
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(312, 38);
             button1.TabIndex = 0;
+            button1.Tag = "";
             button1.Text = "Legacy Panels";
             button1.UseVisualStyleBackColor = false;
             button1.Click += tweaks_click;
@@ -164,9 +179,11 @@
             hiddenfilesBtn.Name = "hiddenfilesBtn";
             hiddenfilesBtn.Size = new System.Drawing.Size(153, 38);
             hiddenfilesBtn.TabIndex = 0;
+            hiddenfilesBtn.Tag = "";
             hiddenfilesBtn.Text = "Hidden";
             hiddenfilesBtn.UseVisualStyleBackColor = false;
             hiddenfilesBtn.Click += tweaks_click;
+            hiddenfilesBtn.MouseHover += button_hover;
             // 
             // fileextensionsBtn
             // 
@@ -178,9 +195,11 @@
             fileextensionsBtn.Name = "fileextensionsBtn";
             fileextensionsBtn.Size = new System.Drawing.Size(153, 38);
             fileextensionsBtn.TabIndex = 0;
+            fileextensionsBtn.Tag = "";
             fileextensionsBtn.Text = "Extensions";
             fileextensionsBtn.UseVisualStyleBackColor = false;
             fileextensionsBtn.Click += tweaks_click;
+            fileextensionsBtn.MouseHover += button_hover;
             // 
             // copilotBtn
             // 
@@ -192,9 +211,11 @@
             copilotBtn.Name = "copilotBtn";
             copilotBtn.Size = new System.Drawing.Size(153, 38);
             copilotBtn.TabIndex = 0;
+            copilotBtn.Tag = "";
             copilotBtn.Text = "Copilot";
             copilotBtn.UseVisualStyleBackColor = false;
             copilotBtn.Click += tweaks_click;
+            copilotBtn.MouseHover += button_hover;
             // 
             // wifisenseBtn
             // 
@@ -206,9 +227,11 @@
             wifisenseBtn.Name = "wifisenseBtn";
             wifisenseBtn.Size = new System.Drawing.Size(153, 38);
             wifisenseBtn.TabIndex = 0;
+            wifisenseBtn.Tag = "";
             wifisenseBtn.Text = "Wifi-Sense";
             wifisenseBtn.UseVisualStyleBackColor = false;
             wifisenseBtn.Click += tweaks_click;
+            wifisenseBtn.MouseHover += button_hover;
             // 
             // TweaksControl
             // 
