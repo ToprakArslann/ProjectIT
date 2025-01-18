@@ -35,7 +35,7 @@
             homegroupBtn = new System.Windows.Forms.Button();
             locationTrackingBtn = new System.Windows.Forms.Button();
             shut10Btn = new System.Windows.Forms.Button();
-            button1 = new System.Windows.Forms.Button();
+            legacyBtn = new System.Windows.Forms.Button();
             hiddenfilesBtn = new System.Windows.Forms.Button();
             fileextensionsBtn = new System.Windows.Forms.Button();
             copilotBtn = new System.Windows.Forms.Button();
@@ -154,20 +154,20 @@
             shut10Btn.Click += tweaks_click;
             shut10Btn.MouseHover += button_hover;
             // 
-            // button1
+            // legacyBtn
             // 
-            button1.BackColor = System.Drawing.Color.FromArgb(52, 52, 52);
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button1.ForeColor = System.Drawing.Color.White;
-            button1.Location = new System.Drawing.Point(4, 326);
-            button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(312, 38);
-            button1.TabIndex = 0;
-            button1.Tag = "";
-            button1.Text = "Legacy Panels";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += tweaks_click;
+            legacyBtn.BackColor = System.Drawing.Color.FromArgb(52, 52, 52);
+            legacyBtn.FlatAppearance.BorderSize = 0;
+            legacyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            legacyBtn.ForeColor = System.Drawing.Color.White;
+            legacyBtn.Location = new System.Drawing.Point(4, 326);
+            legacyBtn.Name = "legacyBtn";
+            legacyBtn.Size = new System.Drawing.Size(312, 38);
+            legacyBtn.TabIndex = 0;
+            legacyBtn.Tag = "";
+            legacyBtn.Text = "Legacy Panels";
+            legacyBtn.UseVisualStyleBackColor = false;
+            legacyBtn.Click += tweaks_click;
             // 
             // hiddenfilesBtn
             // 
@@ -241,7 +241,7 @@
             Controls.Add(fileextensionsBtn);
             Controls.Add(hiddenfilesBtn);
             Controls.Add(homegroupBtn);
-            Controls.Add(button1);
+            Controls.Add(legacyBtn);
             Controls.Add(shut10Btn);
             Controls.Add(wifisenseBtn);
             Controls.Add(copilotBtn);
@@ -267,7 +267,7 @@
         private System.Windows.Forms.Button homegroupBtn;
         private System.Windows.Forms.Button locationTrackingBtn;
         private System.Windows.Forms.Button shut10Btn;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button legacyBtn;
         private System.Windows.Forms.Button hiddenfilesBtn;
         private System.Windows.Forms.Button fileextensionsBtn;
         private System.Windows.Forms.Button copilotBtn;

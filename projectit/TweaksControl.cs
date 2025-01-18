@@ -33,6 +33,7 @@ namespace projectit
             InitializeComponent();
         }
 
+        private LegacyForm legacy = new LegacyForm();
         private ToolTip toolTip = new ToolTip();
         // Shortcut To Access TEMP Folder.
         public string tempPath = Path.GetTempPath();
@@ -314,6 +315,9 @@ namespace projectit
                     {
                         MessageBox.Show("An Error Occured While Enabling File Extensions", "ProjectIT", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
+                    break;
+                case "legacyBtn":
+                    legacy.Show();
                     break;
             }
         }
