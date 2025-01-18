@@ -11,7 +11,7 @@ ProjectIT is providing tools for optimizing systems and networks,troubleshooting
 ## **Features**
 
 - Listing Specs.
-- Advanced Task MAnagewr.
+- Advanced Task Manager.
 - Tweaks And Tools for optimize Windows system.
 - Network Management (Access Shared files via local ip, Port Management etc.)
 
@@ -58,7 +58,6 @@ ProjectIT was created by **[Toprak Arslan](https://github.com/ToprakArslann)**.
 
 ## **Goals**
 
-- **Legacy Panels (Control panel,settings etc.)** 
 - **Setting for changing windows update priority** 
 - **Access shared files folders via ip on local computers**
 - **Port Management**
