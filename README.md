@@ -10,10 +10,10 @@ ProjectIT is providing tools for optimizing systems and networks,troubleshooting
 
 ## ""Features""
 
-*Listing Specs.
-*Advanced Task MAnagewr.
-*Tweaks And Tools for optimize Windows system.
-*Network Management (Access Shared files via local ip, Port Management etc.)
+- Listing Specs.
+- Advanced Task MAnagewr.
+- Tweaks And Tools for optimize Windows system.
+- Network Management (Access Shared files via local ip, Port Management etc.)
 
 ## **Installation**
 
