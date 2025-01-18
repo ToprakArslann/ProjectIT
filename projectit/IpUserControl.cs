@@ -82,7 +82,7 @@ namespace projectit
                 _nonusedIps = nonusedIps.ToArray();
                 listBox1.Items.AddRange(_usedIps);
                 listBox2.Items.AddRange(_nonusedIps);
-
+    
 
             }
             catch (FormatException)
