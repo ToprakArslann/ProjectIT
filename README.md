@@ -1,3 +1,5 @@
+# **THIS PROJECT UNDER DEVELOPMENT!!**
+
 ## **ProjectIT**
 
 A Winform application designed to streamline IT management.
@@ -5,6 +7,13 @@ A Winform application designed to streamline IT management.
 ## **Introduction**
 
 ProjectIT is providing tools for optimizing systems and networks,troubleshooting and more. 
+
+## ""Features""
+
+*Listing Specs.
+*Advanced Task MAnagewr.
+*Tweaks And Tools for optimize Windows system.
+*Network Management (Access Shared files via local ip, Port Management etc.)
 
 ## **Installation**
 
