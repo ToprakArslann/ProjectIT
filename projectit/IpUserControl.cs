@@ -7,6 +7,7 @@ using System.Drawing.Text;
 using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -36,10 +37,7 @@ namespace projectit
         Ping ping = new Ping();
         private async void button1_Click(object sender, EventArgs e)
         {
-            string[] _usedIps = []; 
-            string[] _nonusedIps = [];
-            List<string> usedIps = new List<string>();
-            List<string> nonusedIps = new List<string>();
+
             try
             {
                 var pCont = this.Parent as Panel;
@@ -48,7 +46,7 @@ namespace projectit
                 button1.Enabled = false;
 
                 progressBar1.Value = 0;
-                listBox1.Items.Clear();
+                listView1.Items.Clear();
                 string ip1 = txtIp1.Text.Substring(txtIp1.Text.LastIndexOf(".") + 1);
                 int ipInt1 = int.Parse(ip1);
                 int ipInt2 = ipInt1 + Convert.ToInt32(numericUpDown1.Value);
@@ -60,29 +58,30 @@ namespace projectit
 
                 for (int i = ipInt1; i <= ipInt2; i++)
                 {
+                    string name = "";
+                    string mac = "";
+                    string ip = ""; 
                     string result = beginingIp + "." + i.ToString();
                     IPAddress my = IPAddress.Parse(result);
                     PingReply answer = await ping.SendPingAsync(my);
 
                     if (answer.Status == IPStatus.Success)
                     {
-                        usedIps.Add(result);
+
+                        ip = result;
+                        name = GetHostName(result);
+                        
+                        string[] _usedIps = [name, ip, mac];
+                        ListViewItem lst = new ListViewItem(_usedIps);
+                        listView1.Items.Add(lst);
                     }
-                    else
-                    {
-                        nonusedIps.Add(result);
-                    }
+
                     progressBar1.Value++;
                 }
                 if (progressBar1.Value == progbarMinus)
                 {
                     button1.Enabled = true;
                 }
-                _usedIps = usedIps.ToArray();
-                _nonusedIps = nonusedIps.ToArray();
-                listBox1.Items.AddRange(_usedIps);
-                listBox2.Items.AddRange(_nonusedIps);
-    
 
             }
             catch (FormatException)
@@ -90,13 +89,30 @@ namespace projectit
                 MessageBox.Show("Invalid ip format.");
                 button1.Enabled = true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("An Error Occured Please Try Again.");
+                MessageBox.Show("An Error Occured Please Try Again." + ex);
                 button1.Enabled = true;
             }
         }
 
+        private string GetHostName(string ipAddress)
+        {
+            try
+            {
+                IPHostEntry iphost = Dns.GetHostEntry(ipAddress);
+                if(iphost != null)
+                { 
+                    return iphost.HostName.ToString(); 
+                }
+
+            }
+            catch (SocketException)
+            {
+                return "";
+            }
+            return null;
+        }
         private async void IpUserControl_Load(object sender, EventArgs e)
         {
             IPAddress google = IPAddress.Parse("8.8.8.8");
@@ -125,8 +141,7 @@ namespace projectit
         private void button2_Click(object sender, EventArgs e)
         {
             this.OnLoad(EventArgs.Empty);
-            listBox1.Items.Clear();
-            listBox2.Items.Clear();
+            listView1.Items.Clear();
             progressBar1.Value = 0;
         }
 

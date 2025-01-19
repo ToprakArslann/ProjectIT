@@ -28,186 +28,151 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtIp1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            this.SuspendLayout();
+            txtIp1 = new System.Windows.Forms.TextBox();
+            button1 = new System.Windows.Forms.Button();
+            panel1 = new System.Windows.Forms.Panel();
+            listView1 = new System.Windows.Forms.ListView();
+            nameCol = new System.Windows.Forms.ColumnHeader();
+            ipCol = new System.Windows.Forms.ColumnHeader();
+            macCol = new System.Windows.Forms.ColumnHeader();
+            button2 = new System.Windows.Forms.Button();
+            label1 = new System.Windows.Forms.Label();
+            progressBar1 = new System.Windows.Forms.ProgressBar();
+            numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            SuspendLayout();
             // 
             // txtIp1
             // 
-            this.txtIp1.Enabled = false;
-            this.txtIp1.Location = new System.Drawing.Point(6, 19);
-            this.txtIp1.Margin = new System.Windows.Forms.Padding(6);
-            this.txtIp1.MaxLength = 15;
-            this.txtIp1.Name = "txtIp1";
-            this.txtIp1.Size = new System.Drawing.Size(210, 31);
-            this.txtIp1.TabIndex = 5;
+            txtIp1.Enabled = false;
+            txtIp1.Location = new System.Drawing.Point(31, 31);
+            txtIp1.Margin = new System.Windows.Forms.Padding(6);
+            txtIp1.MaxLength = 15;
+            txtIp1.Name = "txtIp1";
+            txtIp1.Size = new System.Drawing.Size(210, 31);
+            txtIp1.TabIndex = 5;
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.button1.Enabled = false;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(222, 56);
-            this.button1.Margin = new System.Windows.Forms.Padding(6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(92, 43);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // listBox1
-            // 
-            this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(82)))));
-            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBox1.ForeColor = System.Drawing.Color.White;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 25;
-            this.listBox1.Location = new System.Drawing.Point(6, 136);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(6);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(151, 225);
-            this.listBox1.TabIndex = 3;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-            
+            button1.BackColor = System.Drawing.Color.FromArgb(52, 52, 52);
+            button1.Enabled = false;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button1.ForeColor = System.Drawing.Color.White;
+            button1.Location = new System.Drawing.Point(351, 25);
+            button1.Margin = new System.Windows.Forms.Padding(6);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(92, 43);
+            button1.TabIndex = 4;
+            button1.Text = "Search";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.progressBar1);
-            this.panel1.Controls.Add(this.numericUpDown1);
-            this.panel1.Controls.Add(this.listBox2);
-            this.panel1.Controls.Add(this.listBox1);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.txtIp1);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(6);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(320, 367);
-            this.panel1.TabIndex = 6;
+            panel1.Controls.Add(listView1);
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(progressBar1);
+            panel1.Controls.Add(numericUpDown1);
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(txtIp1);
+            panel1.Location = new System.Drawing.Point(1, 0);
+            panel1.Margin = new System.Windows.Forms.Padding(6);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(507, 367);
+            panel1.TabIndex = 6;
+            // 
+            // listView1
+            // 
+            listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { nameCol, ipCol, macCol });
+            listView1.FullRowSelect = true;
+            listView1.GridLines = true;
+            listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            listView1.Location = new System.Drawing.Point(3, 104);
+            listView1.MultiSelect = false;
+            listView1.Name = "listView1";
+            listView1.Size = new System.Drawing.Size(498, 260);
+            listView1.TabIndex = 8;
+            listView1.UseCompatibleStateImageBehavior = false;
+            listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // nameCol
+            // 
+            nameCol.Text = "Name";
+            nameCol.Width = 90;
+            // 
+            // ipCol
+            // 
+            ipCol.Text = "Ip";
+            ipCol.Width = 150;
+            // 
+            // macCol
+            // 
+            macCol.Text = "Mac Address";
+            macCol.Width = 254;
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(186, 56);
-            this.button2.Margin = new System.Windows.Forms.Padding(6);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(30, 43);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "⟳";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(168, 105);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(141, 25);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Non Used Ips";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 105);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 25);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Used Ips";
+            button2.BackColor = System.Drawing.Color.FromArgb(52, 52, 52);
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button2.ForeColor = System.Drawing.Color.White;
+            button2.Location = new System.Drawing.Point(456, 25);
+            button2.Margin = new System.Windows.Forms.Padding(6);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(45, 43);
+            button2.TabIndex = 4;
+            button2.Text = "⟳";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 25);
-            this.label1.TabIndex = 7;
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(3, 65);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(0, 25);
+            label1.TabIndex = 7;
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(6, 5);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(308, 10);
-            this.progressBar1.TabIndex = 0;
+            progressBar1.Location = new System.Drawing.Point(3, 5);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new System.Drawing.Size(498, 10);
+            progressBar1.TabIndex = 0;
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Enabled = false;
-            this.numericUpDown1.Location = new System.Drawing.Point(222, 19);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(92, 31);
-            this.numericUpDown1.TabIndex = 6;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // listBox2
-            // 
-            this.listBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(82)))));
-            this.listBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBox2.ForeColor = System.Drawing.Color.White;
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 25;
-            this.listBox2.Location = new System.Drawing.Point(163, 136);
-            this.listBox2.Margin = new System.Windows.Forms.Padding(6);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(151, 225);
-            this.listBox2.TabIndex = 3;
-            this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-            this.listBox2.MouseHover += new System.EventHandler(this.listBox1_MouseHover);
+            numericUpDown1.Enabled = false;
+            numericUpDown1.Location = new System.Drawing.Point(250, 31);
+            numericUpDown1.Maximum = new decimal(new int[] { 30, 0, 0, 0 });
+            numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new System.Drawing.Size(92, 31);
+            numericUpDown1.TabIndex = 6;
+            numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // IpUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Margin = new System.Windows.Forms.Padding(6);
-            this.Name = "IpUserControl";
-            this.Size = new System.Drawing.Size(320, 367);
-            this.Load += new System.EventHandler(this.IpUserControl_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.FromArgb(70, 70, 70);
+            Controls.Add(panel1);
+            Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
+            Margin = new System.Windows.Forms.Padding(6);
+            Name = "IpUserControl";
+            Size = new System.Drawing.Size(507, 367);
+            Load += IpUserControl_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtIp1;
         public System.Windows.Forms.Panel panel1;
@@ -215,8 +180,9 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader nameCol;
+        private System.Windows.Forms.ColumnHeader ipCol;
+        private System.Windows.Forms.ColumnHeader macCol;
     }
 }
