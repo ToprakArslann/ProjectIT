@@ -152,6 +152,7 @@ namespace projectit
                 case "BtnSpecs":
                     cmbSpecList.Visible = true;
                     btnGetSpecs.Visible = true;
+                    PnlMain.Size = new Size(320, 367);
                     Add_UControlsSide(new UserControl5());
                     Add_UControlsMain(usrContr);
                     cmbSpecList.Items.AddRange(specsItems);
@@ -160,18 +161,21 @@ namespace projectit
                 case "BtnTask":
                     cmbSpecList.Visible = false;
                     btnGetSpecs.Visible = false;
+                    PnlMain.Size = new Size(320, 367);
                     Add_UControlsMain(usrContr);
                     PnlTask.BackColor = Color.White;
                     break;
                 case "BtnDisk":
                     btnGetSpecs.Visible = false;
                     cmbSpecList.Visible = false;
+                    PnlMain.Size = new Size(320, 367);
                     Add_UControlsMain(new TweaksControl());
                     PnlDisk.BackColor = Color.White;
                     break;
                 case "BtnIp":
                     cmbSpecList.Visible = true;
                     btnGetSpecs.Visible = true;
+                    PnlMain.Size = new Size(507, 367);
                     Add_UControlsMain(ipContr);
                     cmbSpecList.Items.AddRange(ipItems);
                     PnlIp.BackColor = Color.White;
@@ -179,6 +183,7 @@ namespace projectit
                 case "BtnInfo":
                     cmbSpecList.Visible = false;
                     btnGetSpecs.Visible = false;
+                    PnlMain.Size = new Size(320, 367);
                     Add_UControlsMain(new UserControl4());
                     PnlInfo.BackColor = Color.White;
                     break;

@@ -34,6 +34,7 @@
             btnGetSpecs = new System.Windows.Forms.Button();
             PnlSide = new System.Windows.Forms.Panel();
             PnlMain = new System.Windows.Forms.Panel();
+            button5 = new System.Windows.Forms.Button();
             label2 = new System.Windows.Forms.Label();
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             PnlInfo = new System.Windows.Forms.Panel();
@@ -48,7 +49,6 @@
             PnlIp = new System.Windows.Forms.Panel();
             BtnIp = new System.Windows.Forms.Button();
             dragController1 = new DragController();
-            button5 = new System.Windows.Forms.Button();
             panel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             PnlInfo.SuspendLayout();
@@ -64,11 +64,11 @@
             panel2.Controls.Add(labelaaaa);
             panel2.Controls.Add(cmbSpecList);
             panel2.Controls.Add(btnGetSpecs);
-            panel2.Controls.Add(PnlSide);
             panel2.Controls.Add(PnlMain);
             panel2.Controls.Add(button5);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(tableLayoutPanel1);
+            panel2.Controls.Add(PnlSide);
             panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             panel2.ForeColor = System.Drawing.SystemColors.Control;
             panel2.Location = new System.Drawing.Point(0, 0);
@@ -129,6 +129,19 @@
             PnlMain.Size = new System.Drawing.Size(320, 367);
             PnlMain.TabIndex = 4;
             PnlMain.Paint += PnlMain_Paint;
+            // 
+            // button5
+            // 
+            button5.FlatAppearance.BorderSize = 0;
+            button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button5.Location = new System.Drawing.Point(702, 0);
+            button5.Name = "button5";
+            button5.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            button5.Size = new System.Drawing.Size(37, 37);
+            button5.TabIndex = 3;
+            button5.Text = "X";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // label2
             // 
@@ -320,19 +333,6 @@
             // dragController1
             // 
             dragController1.SelectControl = panel2;
-            // 
-            // button5
-            // 
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button5.Location = new System.Drawing.Point(702, 0);
-            button5.Name = "button5";
-            button5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            button5.Size = new System.Drawing.Size(37, 37);
-            button5.TabIndex = 3;
-            button5.Text = "X";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
             // 
             // Form1
             // 
