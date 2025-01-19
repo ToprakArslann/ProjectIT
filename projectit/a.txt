@@ -1,5 +1,5 @@
 local ips 
--turn listbox to listview catagories name,ip,manufacturer,mac address
+-turn listbox to listview catagories name,ip,mac address +
 -access shared files folders via ip on local computers
 Optimization
 -shutoo10 +	
@@ -16,13 +16,13 @@ Optimization
 -show hidden files +
 -show file extensions +
 legacy panels
--control panel
--network connections
--power panel
--printr panel
--region
--sound settings
--system properties
--user accounts
--setup autologin
--updates security only
+-control panel +
+-network connections +
+-power panel +
+-printr panel +
+-region +
+-sound settings +
+-system properties +
+-user accounts + 
+-setup autologin + 
+-updates security only +
