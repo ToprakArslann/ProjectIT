@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
@@ -28,13 +29,12 @@ namespace projectit
 
         }
 
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         Ping ping = new Ping();
+        private string name = "";
+        private string mac = "";
+        private string ip = "";
+
+        // Searches The Local Ips.
         private async void button1_Click(object sender, EventArgs e)
         {
 
@@ -58,9 +58,7 @@ namespace projectit
 
                 for (int i = ipInt1; i <= ipInt2; i++)
                 {
-                    string name = "";
-                    string mac = "";
-                    string ip = ""; 
+
                     string result = beginingIp + "." + i.ToString();
                     IPAddress my = IPAddress.Parse(result);
                     PingReply answer = await ping.SendPingAsync(my);
@@ -70,7 +68,7 @@ namespace projectit
 
                         ip = result;
                         name = GetHostName(result);
-                        
+
                         string[] _usedIps = [name, ip, mac];
                         ListViewItem lst = new ListViewItem(_usedIps);
                         listView1.Items.Add(lst);
@@ -95,15 +93,15 @@ namespace projectit
                 button1.Enabled = true;
             }
         }
-
+        // Get Host Name Of Ip.
         private string GetHostName(string ipAddress)
         {
             try
             {
                 IPHostEntry iphost = Dns.GetHostEntry(ipAddress);
-                if(iphost != null)
-                { 
-                    return iphost.HostName.ToString(); 
+                if (iphost != null)
+                {
+                    return iphost.HostName.ToString();
                 }
 
             }
@@ -113,13 +111,14 @@ namespace projectit
             }
             return null;
         }
+
+        // Check Internet Connection.
         private async void IpUserControl_Load(object sender, EventArgs e)
         {
             IPAddress google = IPAddress.Parse("8.8.8.8");
             PingReply checkConnection = await ping.SendPingAsync(google);
             if (checkConnection.Status == IPStatus.Success)
             {
-                Console.WriteLine(checkConnection.Status);
                 string hostname = Dns.GetHostName();
                 string thisIp = Dns.GetHostByName(hostname).AddressList[0].ToString();
                 txtIp1.Enabled = true;
@@ -138,17 +137,12 @@ namespace projectit
 
         }
 
+        // Refresh UserControl
         private void button2_Click(object sender, EventArgs e)
         {
             this.OnLoad(EventArgs.Empty);
             listView1.Items.Clear();
             progressBar1.Value = 0;
-        }
-
-        private void listBox1_MouseHover(object sender, EventArgs e)
-        {
-            ListBox lstBox1 = sender as ListBox;
-            toolTip.SetToolTip(lstBox1, lstBox1.SelectedItem.ToString());
         }
     }
 }
