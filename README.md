@@ -14,6 +14,7 @@ ProjectIT is providing tools for optimizing systems and networks,troubleshooting
 - Advanced Task Manager.
 - Tweaks And Tools for optimize Windows system.
 - Network Management (Access Shared files via local ip, Port Management etc.)
+- Ip Query (Country,City,Zip,Isp,Organization,Time Zone,Currency,is Mobile or Proxy or Hosting Checkers.)
 
 ## **Installation**
 
