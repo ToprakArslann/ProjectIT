@@ -166,17 +166,18 @@ namespace projectit
             }
             else if (cmbSpecList.SelectedItem == "Ip Quary")
             {
-                ipContr.panel1.Visible = false ;
+                ipContr.panel2.Visible = true;
+                ipContr.panel1.Visible = false;
             }
             else if (cmbSpecList.SelectedItem == "Local Ip's")
             {
                 ipContr.panel1.Visible = true;
-
+                ipContr.panel2.Visible = false;
             }
             else if (cmbSpecList.SelectedItem == "ports")
             {
                 ipContr.panel1.Visible = false;
-
+                ipContr.panel2.Visible = false;
             }
         }
 
