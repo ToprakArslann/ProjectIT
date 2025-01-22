@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,9 +8,11 @@ using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -143,6 +146,61 @@ namespace projectit
             this.OnLoad(EventArgs.Empty);
             listView1.Items.Clear();
             progressBar1.Value = 0;
+        }
+
+        private async void button3_Click(object sender, EventArgs e)
+        {
+            string url = $"http://ip-api.com/json/{textBox2.Text}?fields=status,message,continent,continentCode,country,countryCode,region,regionName,city,district,zip,timezone,currency,isp,org,mobile,proxy,hosting,query";
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    HttpResponseMessage response = await client.GetAsync(url);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string responseBody = await response.Content.ReadAsStringAsync();
+                        using (JsonDocument document = JsonDocument.Parse(responseBody))
+                        {
+                            JsonElement root = document.RootElement;
+                            string status = root.GetProperty("status").ToString();
+                            if (status == "success")
+                            {
+                                string country = root.GetProperty("country").ToString();
+                                string city = root.GetProperty("city").ToString();
+                                string zip = root.GetProperty("zip").ToString();
+                                string timeZone = root.GetProperty("timezone").ToString();
+                                string currency = root.GetProperty("currency").ToString();
+                                string isp = root.GetProperty("isp").ToString();
+                                string org = root.GetProperty("org").ToString();
+                                bool mobile = root.GetProperty("mobile").GetBoolean();
+                                bool proxy = root.GetProperty("proxy").GetBoolean();
+                                bool hosting = root.GetProperty("hosting").GetBoolean();
+
+                                textBox1.Text = country;
+                                textBox3.Text = city;
+                                textBox4.Text = zip;
+                                textBox5.Text = currency;
+                                textBox6.Text = isp;
+                                textBox7.Text = org;
+                                textBox8.Text = timeZone;
+                                textBox9.Text = mobile.ToString();
+                                textBox10.Text = proxy.ToString();
+                                textBox11.Text = hosting.ToString();
+                            }
+                            else
+                            {
+                                MessageBox.Show(status);
+                            }
+                            
+                        }
+
+                    }
+                }
+            }
+            catch
+            {
+
+            }
         }
     }
 }

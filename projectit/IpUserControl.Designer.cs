@@ -31,6 +31,11 @@
             txtIp1 = new System.Windows.Forms.TextBox();
             button1 = new System.Windows.Forms.Button();
             panel1 = new System.Windows.Forms.Panel();
+            panel2 = new System.Windows.Forms.Panel();
+            label2 = new System.Windows.Forms.Label();
+            textBox1 = new System.Windows.Forms.TextBox();
+            textBox2 = new System.Windows.Forms.TextBox();
+            button3 = new System.Windows.Forms.Button();
             listView1 = new System.Windows.Forms.ListView();
             nameCol = new System.Windows.Forms.ColumnHeader();
             ipCol = new System.Windows.Forms.ColumnHeader();
@@ -39,7 +44,26 @@
             label1 = new System.Windows.Forms.Label();
             progressBar1 = new System.Windows.Forms.ProgressBar();
             numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            textBox3 = new System.Windows.Forms.TextBox();
+            label3 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
+            textBox4 = new System.Windows.Forms.TextBox();
+            textBox5 = new System.Windows.Forms.TextBox();
+            label5 = new System.Windows.Forms.Label();
+            textBox6 = new System.Windows.Forms.TextBox();
+            label6 = new System.Windows.Forms.Label();
+            textBox7 = new System.Windows.Forms.TextBox();
+            label7 = new System.Windows.Forms.Label();
+            textBox8 = new System.Windows.Forms.TextBox();
+            label8 = new System.Windows.Forms.Label();
+            textBox9 = new System.Windows.Forms.TextBox();
+            label9 = new System.Windows.Forms.Label();
+            textBox10 = new System.Windows.Forms.TextBox();
+            label10 = new System.Windows.Forms.Label();
+            textBox11 = new System.Windows.Forms.TextBox();
+            label11 = new System.Windows.Forms.Label();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
@@ -71,6 +95,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(panel2);
             panel1.Controls.Add(listView1);
             panel1.Controls.Add(button2);
             panel1.Controls.Add(label1);
@@ -83,6 +108,75 @@
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(507, 367);
             panel1.TabIndex = 6;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(label3);
+            panel2.Controls.Add(label7);
+            panel2.Controls.Add(label6);
+            panel2.Controls.Add(label10);
+            panel2.Controls.Add(label9);
+            panel2.Controls.Add(label5);
+            panel2.Controls.Add(label4);
+            panel2.Controls.Add(label2);
+            panel2.Controls.Add(textBox3);
+            panel2.Controls.Add(textBox7);
+            panel2.Controls.Add(textBox6);
+            panel2.Controls.Add(textBox11);
+            panel2.Controls.Add(textBox10);
+            panel2.Controls.Add(textBox9);
+            panel2.Controls.Add(textBox5);
+            panel2.Controls.Add(textBox4);
+            panel2.Controls.Add(textBox8);
+            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(textBox2);
+            panel2.Controls.Add(button3);
+            panel2.Controls.Add(label8);
+            panel2.Controls.Add(label11);
+            panel2.Location = new System.Drawing.Point(1, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new System.Drawing.Size(506, 367);
+            panel2.TabIndex = 7;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.ForeColor = System.Drawing.Color.White;
+            label2.Location = new System.Drawing.Point(3, 104);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(87, 25);
+            label2.TabIndex = 8;
+            label2.Text = "Country";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new System.Drawing.Point(96, 101);
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new System.Drawing.Size(139, 31);
+            textBox1.TabIndex = 7;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new System.Drawing.Point(168, 25);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new System.Drawing.Size(174, 31);
+            textBox2.TabIndex = 7;
+            // 
+            // button3
+            // 
+            button3.BackColor = System.Drawing.Color.FromArgb(52, 52, 52);
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button3.ForeColor = System.Drawing.Color.White;
+            button3.Location = new System.Drawing.Point(372, 19);
+            button3.Margin = new System.Windows.Forms.Padding(6);
+            button3.Name = "button3";
+            button3.Size = new System.Drawing.Size(92, 43);
+            button3.TabIndex = 4;
+            button3.Text = "Search";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // listView1
             // 
@@ -155,6 +249,168 @@
             numericUpDown1.TabIndex = 6;
             numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
+            // textBox3
+            // 
+            textBox3.Location = new System.Drawing.Point(96, 155);
+            textBox3.Name = "textBox3";
+            textBox3.ReadOnly = true;
+            textBox3.Size = new System.Drawing.Size(139, 31);
+            textBox3.TabIndex = 7;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.ForeColor = System.Drawing.Color.White;
+            label3.Location = new System.Drawing.Point(41, 158);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(49, 25);
+            label3.TabIndex = 8;
+            label3.Text = "City";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.ForeColor = System.Drawing.Color.White;
+            label4.Location = new System.Drawing.Point(48, 212);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(42, 25);
+            label4.TabIndex = 8;
+            label4.Text = "Zip";
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new System.Drawing.Point(96, 209);
+            textBox4.Name = "textBox4";
+            textBox4.ReadOnly = true;
+            textBox4.Size = new System.Drawing.Size(90, 31);
+            textBox4.TabIndex = 7;
+            // 
+            // textBox5
+            // 
+            textBox5.Location = new System.Drawing.Point(399, 155);
+            textBox5.Name = "textBox5";
+            textBox5.ReadOnly = true;
+            textBox5.Size = new System.Drawing.Size(90, 31);
+            textBox5.TabIndex = 7;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.ForeColor = System.Drawing.Color.White;
+            label5.Location = new System.Drawing.Point(294, 158);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(99, 25);
+            label5.TabIndex = 8;
+            label5.Text = "Currency";
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new System.Drawing.Point(96, 264);
+            textBox6.Name = "textBox6";
+            textBox6.ReadOnly = true;
+            textBox6.Size = new System.Drawing.Size(196, 31);
+            textBox6.TabIndex = 7;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.ForeColor = System.Drawing.Color.White;
+            label6.Location = new System.Drawing.Point(50, 267);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(40, 25);
+            label6.TabIndex = 8;
+            label6.Text = "Isp";
+            // 
+            // textBox7
+            // 
+            textBox7.Location = new System.Drawing.Point(96, 318);
+            textBox7.Name = "textBox7";
+            textBox7.ReadOnly = true;
+            textBox7.Size = new System.Drawing.Size(196, 31);
+            textBox7.TabIndex = 7;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.ForeColor = System.Drawing.Color.White;
+            label7.Location = new System.Drawing.Point(43, 321);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(47, 25);
+            label7.TabIndex = 8;
+            label7.Text = "Org";
+            // 
+            // textBox8
+            // 
+            textBox8.Location = new System.Drawing.Point(350, 101);
+            textBox8.Name = "textBox8";
+            textBox8.ReadOnly = true;
+            textBox8.Size = new System.Drawing.Size(139, 31);
+            textBox8.TabIndex = 7;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.ForeColor = System.Drawing.Color.White;
+            label8.Location = new System.Drawing.Point(238, 104);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(114, 25);
+            label8.TabIndex = 8;
+            label8.Text = "Time Zone";
+            // 
+            // textBox9
+            // 
+            textBox9.Location = new System.Drawing.Point(399, 209);
+            textBox9.Name = "textBox9";
+            textBox9.ReadOnly = true;
+            textBox9.Size = new System.Drawing.Size(90, 31);
+            textBox9.TabIndex = 7;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.ForeColor = System.Drawing.Color.White;
+            label9.Location = new System.Drawing.Point(294, 212);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(98, 25);
+            label9.TabIndex = 8;
+            label9.Text = "Is Mobile";
+            // 
+            // textBox10
+            // 
+            textBox10.Location = new System.Drawing.Point(399, 264);
+            textBox10.Name = "textBox10";
+            textBox10.ReadOnly = true;
+            textBox10.Size = new System.Drawing.Size(90, 31);
+            textBox10.TabIndex = 7;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.ForeColor = System.Drawing.Color.White;
+            label10.Location = new System.Drawing.Point(303, 264);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(89, 25);
+            label10.TabIndex = 8;
+            label10.Text = "Is Proxy";
+            // 
+            // textBox11
+            // 
+            textBox11.Location = new System.Drawing.Point(399, 318);
+            textBox11.Name = "textBox11";
+            textBox11.ReadOnly = true;
+            textBox11.Size = new System.Drawing.Size(90, 31);
+            textBox11.TabIndex = 7;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.ForeColor = System.Drawing.Color.White;
+            label11.Location = new System.Drawing.Point(286, 321);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(107, 25);
+            label11.TabIndex = 8;
+            label11.Text = "Is Hosting";
+            // 
             // IpUserControl
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -168,6 +424,8 @@
             Load += IpUserControl_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
         }
@@ -180,9 +438,32 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader nameCol;
         private System.Windows.Forms.ColumnHeader ipCol;
         private System.Windows.Forms.ColumnHeader macCol;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label11;
     }
 }
