@@ -32,10 +32,28 @@
             button1 = new System.Windows.Forms.Button();
             panel1 = new System.Windows.Forms.Panel();
             panel2 = new System.Windows.Forms.Panel();
+            label3 = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
+            label9 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
+            textBox3 = new System.Windows.Forms.TextBox();
+            textBox7 = new System.Windows.Forms.TextBox();
+            textBox6 = new System.Windows.Forms.TextBox();
+            textBox11 = new System.Windows.Forms.TextBox();
+            textBox10 = new System.Windows.Forms.TextBox();
+            textBox9 = new System.Windows.Forms.TextBox();
+            textBox5 = new System.Windows.Forms.TextBox();
+            textBox4 = new System.Windows.Forms.TextBox();
+            textBox8 = new System.Windows.Forms.TextBox();
             textBox1 = new System.Windows.Forms.TextBox();
             textBox2 = new System.Windows.Forms.TextBox();
             button3 = new System.Windows.Forms.Button();
+            label8 = new System.Windows.Forms.Label();
+            label11 = new System.Windows.Forms.Label();
             listView1 = new System.Windows.Forms.ListView();
             nameCol = new System.Windows.Forms.ColumnHeader();
             ipCol = new System.Windows.Forms.ColumnHeader();
@@ -44,24 +62,7 @@
             label1 = new System.Windows.Forms.Label();
             progressBar1 = new System.Windows.Forms.ProgressBar();
             numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            textBox3 = new System.Windows.Forms.TextBox();
-            label3 = new System.Windows.Forms.Label();
-            label4 = new System.Windows.Forms.Label();
-            textBox4 = new System.Windows.Forms.TextBox();
-            textBox5 = new System.Windows.Forms.TextBox();
-            label5 = new System.Windows.Forms.Label();
-            textBox6 = new System.Windows.Forms.TextBox();
-            label6 = new System.Windows.Forms.Label();
-            textBox7 = new System.Windows.Forms.TextBox();
-            label7 = new System.Windows.Forms.Label();
-            textBox8 = new System.Windows.Forms.TextBox();
-            label8 = new System.Windows.Forms.Label();
-            textBox9 = new System.Windows.Forms.TextBox();
-            label9 = new System.Windows.Forms.Label();
-            textBox10 = new System.Windows.Forms.TextBox();
-            label10 = new System.Windows.Forms.Label();
-            textBox11 = new System.Windows.Forms.TextBox();
-            label11 = new System.Windows.Forms.Label();
+            label12 = new System.Windows.Forms.Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
@@ -111,6 +112,7 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(label12);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(label6);
@@ -138,6 +140,76 @@
             panel2.Size = new System.Drawing.Size(506, 367);
             panel2.TabIndex = 7;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.ForeColor = System.Drawing.Color.White;
+            label3.Location = new System.Drawing.Point(41, 158);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(49, 25);
+            label3.TabIndex = 8;
+            label3.Text = "City";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.ForeColor = System.Drawing.Color.White;
+            label7.Location = new System.Drawing.Point(43, 321);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(47, 25);
+            label7.TabIndex = 8;
+            label7.Text = "Org";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.ForeColor = System.Drawing.Color.White;
+            label6.Location = new System.Drawing.Point(50, 267);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(40, 25);
+            label6.TabIndex = 8;
+            label6.Text = "Isp";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.ForeColor = System.Drawing.Color.White;
+            label10.Location = new System.Drawing.Point(303, 264);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(89, 25);
+            label10.TabIndex = 8;
+            label10.Text = "Is Proxy";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.ForeColor = System.Drawing.Color.White;
+            label9.Location = new System.Drawing.Point(294, 212);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(98, 25);
+            label9.TabIndex = 8;
+            label9.Text = "Is Mobile";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.ForeColor = System.Drawing.Color.White;
+            label5.Location = new System.Drawing.Point(294, 158);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(99, 25);
+            label5.TabIndex = 8;
+            label5.Text = "Currency";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.ForeColor = System.Drawing.Color.White;
+            label4.Location = new System.Drawing.Point(48, 212);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(42, 25);
+            label4.TabIndex = 8;
+            label4.Text = "Zip";
+            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -147,6 +219,78 @@
             label2.Size = new System.Drawing.Size(87, 25);
             label2.TabIndex = 8;
             label2.Text = "Country";
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new System.Drawing.Point(96, 155);
+            textBox3.Name = "textBox3";
+            textBox3.ReadOnly = true;
+            textBox3.Size = new System.Drawing.Size(139, 31);
+            textBox3.TabIndex = 7;
+            // 
+            // textBox7
+            // 
+            textBox7.Location = new System.Drawing.Point(96, 318);
+            textBox7.Name = "textBox7";
+            textBox7.ReadOnly = true;
+            textBox7.Size = new System.Drawing.Size(196, 31);
+            textBox7.TabIndex = 7;
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new System.Drawing.Point(96, 264);
+            textBox6.Name = "textBox6";
+            textBox6.ReadOnly = true;
+            textBox6.Size = new System.Drawing.Size(196, 31);
+            textBox6.TabIndex = 7;
+            // 
+            // textBox11
+            // 
+            textBox11.Location = new System.Drawing.Point(399, 318);
+            textBox11.Name = "textBox11";
+            textBox11.ReadOnly = true;
+            textBox11.Size = new System.Drawing.Size(90, 31);
+            textBox11.TabIndex = 7;
+            // 
+            // textBox10
+            // 
+            textBox10.Location = new System.Drawing.Point(399, 264);
+            textBox10.Name = "textBox10";
+            textBox10.ReadOnly = true;
+            textBox10.Size = new System.Drawing.Size(90, 31);
+            textBox10.TabIndex = 7;
+            // 
+            // textBox9
+            // 
+            textBox9.Location = new System.Drawing.Point(399, 209);
+            textBox9.Name = "textBox9";
+            textBox9.ReadOnly = true;
+            textBox9.Size = new System.Drawing.Size(90, 31);
+            textBox9.TabIndex = 7;
+            // 
+            // textBox5
+            // 
+            textBox5.Location = new System.Drawing.Point(399, 155);
+            textBox5.Name = "textBox5";
+            textBox5.ReadOnly = true;
+            textBox5.Size = new System.Drawing.Size(90, 31);
+            textBox5.TabIndex = 7;
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new System.Drawing.Point(96, 209);
+            textBox4.Name = "textBox4";
+            textBox4.ReadOnly = true;
+            textBox4.Size = new System.Drawing.Size(90, 31);
+            textBox4.TabIndex = 7;
+            // 
+            // textBox8
+            // 
+            textBox8.Location = new System.Drawing.Point(350, 101);
+            textBox8.Name = "textBox8";
+            textBox8.ReadOnly = true;
+            textBox8.Size = new System.Drawing.Size(139, 31);
+            textBox8.TabIndex = 7;
             // 
             // textBox1
             // 
@@ -177,6 +321,26 @@
             button3.Text = "Search";
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.ForeColor = System.Drawing.Color.White;
+            label8.Location = new System.Drawing.Point(238, 104);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(114, 25);
+            label8.TabIndex = 8;
+            label8.Text = "Time Zone";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.ForeColor = System.Drawing.Color.White;
+            label11.Location = new System.Drawing.Point(286, 321);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(107, 25);
+            label11.TabIndex = 8;
+            label11.Text = "Is Hosting";
             // 
             // listView1
             // 
@@ -249,167 +413,15 @@
             numericUpDown1.TabIndex = 6;
             numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // textBox3
+            // label12
             // 
-            textBox3.Location = new System.Drawing.Point(96, 155);
-            textBox3.Name = "textBox3";
-            textBox3.ReadOnly = true;
-            textBox3.Size = new System.Drawing.Size(139, 31);
-            textBox3.TabIndex = 7;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.ForeColor = System.Drawing.Color.White;
-            label3.Location = new System.Drawing.Point(41, 158);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(49, 25);
-            label3.TabIndex = 8;
-            label3.Text = "City";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.ForeColor = System.Drawing.Color.White;
-            label4.Location = new System.Drawing.Point(48, 212);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(42, 25);
-            label4.TabIndex = 8;
-            label4.Text = "Zip";
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new System.Drawing.Point(96, 209);
-            textBox4.Name = "textBox4";
-            textBox4.ReadOnly = true;
-            textBox4.Size = new System.Drawing.Size(90, 31);
-            textBox4.TabIndex = 7;
-            // 
-            // textBox5
-            // 
-            textBox5.Location = new System.Drawing.Point(399, 155);
-            textBox5.Name = "textBox5";
-            textBox5.ReadOnly = true;
-            textBox5.Size = new System.Drawing.Size(90, 31);
-            textBox5.TabIndex = 7;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.ForeColor = System.Drawing.Color.White;
-            label5.Location = new System.Drawing.Point(294, 158);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(99, 25);
-            label5.TabIndex = 8;
-            label5.Text = "Currency";
-            // 
-            // textBox6
-            // 
-            textBox6.Location = new System.Drawing.Point(96, 264);
-            textBox6.Name = "textBox6";
-            textBox6.ReadOnly = true;
-            textBox6.Size = new System.Drawing.Size(196, 31);
-            textBox6.TabIndex = 7;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.ForeColor = System.Drawing.Color.White;
-            label6.Location = new System.Drawing.Point(50, 267);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(40, 25);
-            label6.TabIndex = 8;
-            label6.Text = "Isp";
-            // 
-            // textBox7
-            // 
-            textBox7.Location = new System.Drawing.Point(96, 318);
-            textBox7.Name = "textBox7";
-            textBox7.ReadOnly = true;
-            textBox7.Size = new System.Drawing.Size(196, 31);
-            textBox7.TabIndex = 7;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.ForeColor = System.Drawing.Color.White;
-            label7.Location = new System.Drawing.Point(43, 321);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(47, 25);
-            label7.TabIndex = 8;
-            label7.Text = "Org";
-            // 
-            // textBox8
-            // 
-            textBox8.Location = new System.Drawing.Point(350, 101);
-            textBox8.Name = "textBox8";
-            textBox8.ReadOnly = true;
-            textBox8.Size = new System.Drawing.Size(139, 31);
-            textBox8.TabIndex = 7;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.ForeColor = System.Drawing.Color.White;
-            label8.Location = new System.Drawing.Point(238, 104);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(114, 25);
-            label8.TabIndex = 8;
-            label8.Text = "Time Zone";
-            // 
-            // textBox9
-            // 
-            textBox9.Location = new System.Drawing.Point(399, 209);
-            textBox9.Name = "textBox9";
-            textBox9.ReadOnly = true;
-            textBox9.Size = new System.Drawing.Size(90, 31);
-            textBox9.TabIndex = 7;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.ForeColor = System.Drawing.Color.White;
-            label9.Location = new System.Drawing.Point(294, 212);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(98, 25);
-            label9.TabIndex = 8;
-            label9.Text = "Is Mobile";
-            // 
-            // textBox10
-            // 
-            textBox10.Location = new System.Drawing.Point(399, 264);
-            textBox10.Name = "textBox10";
-            textBox10.ReadOnly = true;
-            textBox10.Size = new System.Drawing.Size(90, 31);
-            textBox10.TabIndex = 7;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.ForeColor = System.Drawing.Color.White;
-            label10.Location = new System.Drawing.Point(303, 264);
-            label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(89, 25);
-            label10.TabIndex = 8;
-            label10.Text = "Is Proxy";
-            // 
-            // textBox11
-            // 
-            textBox11.Location = new System.Drawing.Point(399, 318);
-            textBox11.Name = "textBox11";
-            textBox11.ReadOnly = true;
-            textBox11.Size = new System.Drawing.Size(90, 31);
-            textBox11.TabIndex = 7;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.ForeColor = System.Drawing.Color.White;
-            label11.Location = new System.Drawing.Point(286, 321);
-            label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(107, 25);
-            label11.TabIndex = 8;
-            label11.Text = "Is Hosting";
+            label12.AutoSize = true;
+            label12.ForeColor = System.Drawing.Color.White;
+            label12.Location = new System.Drawing.Point(72, 28);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(92, 25);
+            label12.TabIndex = 9;
+            label12.Text = "Enter Ip:";
             // 
             // IpUserControl
             // 
@@ -438,7 +450,6 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
@@ -465,5 +476,7 @@
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        public System.Windows.Forms.Panel panel2;
     }
 }
