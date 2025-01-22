@@ -64,60 +64,10 @@ namespace projectit
         {
             Application.Exit();
         }
-        
-        public async void ipQuary()
-        {
-            string ipAddress = "37.130.105.168";
-            string url = $"https://freeipapi.com/api/json/{ipAddress}";
-            
-
-            using (HttpClient client = new HttpClient())
-            {
-                HttpResponseMessage response = await client.GetAsync(url);
-                if (response.IsSuccessStatusCode)
-                {
-                    string responseBody = await response.Content.ReadAsStringAsync();
-                    using (JsonDocument document = JsonDocument.Parse(responseBody))
-                    {
-                        JsonElement root = document.RootElement;
-                        JsonElement currency = root.GetProperty("currency");
-                        string ipAddresss = root.GetProperty("ipAddress").GetString();
-                        //string latitude = root.GetProperty("latitude");
-                        //string longitude = root.GetProperty("longitude").GetString();
-                        string countryName = root.GetProperty("countryName").GetString();
-                        string countryCode = root.GetProperty("countryCode").GetString();
-                        string timeZone = root.GetProperty("timeZone").GetString();
-                        string zipCode = root.GetProperty("zipCode").GetString();
-                        string cityName = root.GetProperty("cityName").GetString();
-                        string regionName = root.GetProperty("regionName").GetString();
-                        //string isProxy = root.GetProperty("isProxy").GetString();
-                        string currencyCode = currency.GetProperty("code").GetString();
-                        string language = root.GetProperty("language").GetString();
-                        //string timeZones = root.GetProperty("timeZones").GetString();
-
-
-
-
-
-                    }
-
-                }
-                else
-                {
-                    labelaaaa.Text = response.StatusCode.ToString() + " Error";
-                }
-
-
-
-            }
-            
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           // ipQuary();
-            
-            
+       
 
         }
 
