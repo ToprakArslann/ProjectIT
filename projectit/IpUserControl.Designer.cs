@@ -32,6 +32,7 @@
             button1 = new System.Windows.Forms.Button();
             panel1 = new System.Windows.Forms.Panel();
             panel2 = new System.Windows.Forms.Panel();
+            label12 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             label7 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
@@ -62,7 +63,6 @@
             label1 = new System.Windows.Forms.Label();
             progressBar1 = new System.Windows.Forms.ProgressBar();
             numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            label12 = new System.Windows.Forms.Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
@@ -96,7 +96,6 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(panel2);
             panel1.Controls.Add(listView1);
             panel1.Controls.Add(button2);
             panel1.Controls.Add(label1);
@@ -104,7 +103,7 @@
             panel1.Controls.Add(numericUpDown1);
             panel1.Controls.Add(button1);
             panel1.Controls.Add(txtIp1);
-            panel1.Location = new System.Drawing.Point(1, 0);
+            panel1.Location = new System.Drawing.Point(2, 0);
             panel1.Margin = new System.Windows.Forms.Padding(6);
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(507, 367);
@@ -139,6 +138,16 @@
             panel2.Name = "panel2";
             panel2.Size = new System.Drawing.Size(506, 367);
             panel2.TabIndex = 7;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.ForeColor = System.Drawing.Color.White;
+            label12.Location = new System.Drawing.Point(72, 28);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(92, 25);
+            label12.TabIndex = 9;
+            label12.Text = "Enter Ip:";
             // 
             // label3
             // 
@@ -413,21 +422,12 @@
             numericUpDown1.TabIndex = 6;
             numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.ForeColor = System.Drawing.Color.White;
-            label12.Location = new System.Drawing.Point(72, 28);
-            label12.Name = "label12";
-            label12.Size = new System.Drawing.Size(92, 25);
-            label12.TabIndex = 9;
-            label12.Text = "Enter Ip:";
-            // 
             // IpUserControl
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb(70, 70, 70);
+            Controls.Add(panel2);
             Controls.Add(panel1);
             Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 162);
             Margin = new System.Windows.Forms.Padding(6);
