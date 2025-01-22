@@ -61,7 +61,6 @@ ProjectIT was created by **[Toprak Arslan](https://github.com/ToprakArslann)**.
 - **Setting for changing windows update priority** 
 - **Access shared files folders via ip on local computers**
 - **Port Management**
-- **Ip Quary that shows ip location etc.**
 - **More options on localIps**
 - **Advanced Task Manager**
 - **Advanced Computer Specs**
