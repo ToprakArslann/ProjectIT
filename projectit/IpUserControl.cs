@@ -148,6 +148,8 @@ namespace projectit
             progressBar1.Value = 0;
         }
 
+
+        // Ip Query
         private async void button3_Click(object sender, EventArgs e)
         {
             string url = $"http://ip-api.com/json/{textBox2.Text}?fields=status,message,continent,continentCode,country,countryCode,region,regionName,city,district,zip,timezone,currency,isp,org,mobile,proxy,hosting,query";
@@ -189,17 +191,21 @@ namespace projectit
                             }
                             else
                             {
-                                MessageBox.Show(status);
+                                MessageBox.Show("Failed!\n" + root.GetProperty("message"),"ProjectIT",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                             }
                             
                         }
 
                     }
+                    else
+                    {
+                        MessageBox.Show("Please Check Your Internet Connection And Try Again!", "ProjectIT", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
             }
             catch
             {
-
+                MessageBox.Show("An Error Occurred During Query!", "ProjectIT", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
