@@ -129,6 +129,7 @@
             Margin = new System.Windows.Forms.Padding(6);
             Name = "TaskUserControl";
             Size = new System.Drawing.Size(507, 367);
+            Load += TaskUserControl_Load;
             ResumeLayout(false);
             PerformLayout();
         }
