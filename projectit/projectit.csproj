@@ -21,7 +21,7 @@
     <Compile Update="TweaksControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControl2.cs">
+    <Compile Update="TaskUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControl3.cs">
