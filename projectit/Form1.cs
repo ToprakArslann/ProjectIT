@@ -111,8 +111,8 @@ namespace projectit
                 case "BtnTask":
                     cmbSpecList.Visible = false;
                     btnGetSpecs.Visible = false;
-                    PnlMain.Size = new Size(320, 367);
-                    Add_UControlsMain(usrContr);
+                    PnlMain.Size = new Size(507, 367);
+                    Add_UControlsMain(new TaskUserControl());
                     PnlTask.BackColor = Color.White;
                     break;
                 case "BtnDisk":
