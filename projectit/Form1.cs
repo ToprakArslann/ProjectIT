@@ -133,8 +133,8 @@ namespace projectit
                 case "BtnInfo":
                     cmbSpecList.Visible = false;
                     btnGetSpecs.Visible = false;
-                    PnlMain.Size = new Size(320, 367);
-                    Add_UControlsMain(new UserControl4());
+                    PnlMain.Size = new Size(507, 367);
+                    Add_UControlsMain(new InfoUserControl());
                     PnlInfo.BackColor = Color.White;
                     break;
             }
