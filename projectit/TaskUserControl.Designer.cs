@@ -94,6 +94,7 @@
             button1.TabIndex = 5;
             button1.Text = "Refresh";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -106,8 +107,9 @@
             button2.Name = "button2";
             button2.Size = new System.Drawing.Size(95, 43);
             button2.TabIndex = 5;
-            button2.Text = "Search";
+            button2.Text = "Run";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // textBox1
             // 
