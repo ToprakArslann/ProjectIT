@@ -105,16 +105,33 @@ namespace projectit
             }
             catch (ArgumentOutOfRangeException)
             {
-                MessageBox.Show("Please Select An Process To Kill","ProjectIT",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Please Select An Process To Kill", "ProjectIT", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             catch
             {
-                MessageBox.Show("Error Occurred While Killing Application.","ProjectIT",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Error Occurred While Killing Application.", "ProjectIT", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             finally
             {
                 button3.Enabled = true;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GetProcesses();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start(textBox1.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Error Occurred While Running Application.", "ProjectIT", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
