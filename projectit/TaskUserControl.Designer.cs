@@ -42,13 +42,13 @@
             // 
             listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { name, processId, status });
             listView1.FullRowSelect = true;
-            listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             listView1.Location = new System.Drawing.Point(0, 3);
             listView1.Name = "listView1";
             listView1.Size = new System.Drawing.Size(507, 315);
             listView1.TabIndex = 0;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = System.Windows.Forms.View.Details;
+            listView1.ColumnClick += listView1_ColumnClick;
             // 
             // name
             // 
