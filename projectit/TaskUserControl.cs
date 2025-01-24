@@ -26,9 +26,8 @@ namespace projectit
         {
             GetProcesses();
         }
+
         private bool ascending = true;
-
-
         private int sortColumn = -1;
         private void listView1_ColumnClick(object sender, ColumnClickEventArgs e)
         {
@@ -44,7 +43,7 @@ namespace projectit
             listView1.ListViewItemSorter = new ListViewItemComparer(e.Column, ascending);
             listView1.Sort();
         }
-        private class ListViewItemComparer : IComparer<ListViewItem>,IComparer
+        private class ListViewItemComparer : IComparer<ListViewItem>, IComparer
         {
             private readonly int columnIndex;
             private readonly bool ascending;
@@ -76,8 +75,9 @@ namespace projectit
         }
         private void GetProcesses()
         {
-            Process[] processes = Process.GetProcesses();
+            listView1.Items.Clear();
 
+            Process[] processes = Process.GetProcesses();
 
             foreach (Process proc in processes)
             {
@@ -89,6 +89,32 @@ namespace projectit
                 string[] _lst = [_name, id.ToString(), statusStr];
                 ListViewItem lst = new ListViewItem(_lst);
                 listView1.Items.Add(lst);
+            }
+        }
+
+        private async void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                button3.Enabled = false;
+                ListViewItem selectedItem = listView1.SelectedItems[0];
+                Process selectedProcess = Process.GetProcessById(int.Parse(selectedItem.SubItems[1].Text));
+                selectedProcess.Kill();
+                await Task.Delay(500);
+                GetProcesses();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Please Select An Process To Kill","ProjectIT",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
+
+            catch
+            {
+                MessageBox.Show("Error Occurred While Killing Application.","ProjectIT",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
+            finally
+            {
+                button3.Enabled = true;
             }
         }
     }

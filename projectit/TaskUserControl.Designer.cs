@@ -43,6 +43,7 @@
             listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { name, processId, status });
             listView1.FullRowSelect = true;
             listView1.Location = new System.Drawing.Point(0, 3);
+            listView1.MultiSelect = false;
             listView1.Name = "listView1";
             listView1.Size = new System.Drawing.Size(507, 315);
             listView1.TabIndex = 0;
@@ -78,6 +79,7 @@
             button3.TabIndex = 5;
             button3.Text = "Kill";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button1
             // 
