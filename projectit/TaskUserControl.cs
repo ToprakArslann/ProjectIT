@@ -6,6 +6,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,9 +15,16 @@ namespace projectit
 {
     public partial class TaskUserControl : UserControl
     {
+        ManagementEventWatcher processStartWatcher = new ManagementEventWatcher("SELECT * FROM Win32_ProcessStartTrace");
+        ManagementEventWatcher processStopWatcher = new ManagementEventWatcher("SELECT * FROM Win32_ProcessStopTrace");
+
         public TaskUserControl()
         {
             InitializeComponent();
+            processStartWatcher.EventArrived += new EventArrivedEventHandler(processStartWatcher_EventArrived);
+            processStartWatcher.Start();
+            processStopWatcher.EventArrived += new EventArrivedEventHandler(processStopWatcher_EventArrived);
+            processStopWatcher.Start();
         }
         private string _name;
         private int id;
@@ -27,6 +35,67 @@ namespace projectit
             GetProcesses();
         }
 
+        private void processStartWatcher_EventArrived(object sender, EventArrivedEventArgs e)
+        {
+            try
+            {
+                string nameNew = e.NewEvent.Properties["ProcessName"].Value.ToString();
+                int idNew = int.Parse(e.NewEvent.Properties["ProcessID"].Value.ToString());
+                Process proc = Process.GetProcessById(idNew);
+                bool _statusNew = proc.Responding;
+                string statusStrNew = _statusNew ? "Working" : "No Responding";
+                string[] lst = [nameNew, idNew.ToString(), statusStrNew];
+                if (listView1.InvokeRequired)
+                {
+                    listView1.Invoke(new Action(() =>
+                        listView1.Items.Add(new ListViewItem(lst))
+                    ));
+                }
+                else
+                {
+                    listView1.Items.Add(new ListViewItem(lst));
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        private void processStopWatcher_EventArrived(object sender, EventArrivedEventArgs e)
+        {
+            try
+            {
+                string idNew = e.NewEvent.Properties["ProcessID"].Value.ToString();
+                if (listView1.InvokeRequired)
+                {
+                    listView1.Invoke(new Action(() =>
+                        {
+                            foreach (ListViewItem lst in listView1.Items)
+                            {
+                                if (lst.SubItems[1].Text == idNew)
+                                {
+                                    listView1.Items.Remove(lst);
+                                }
+                            }
+                        }
+                    ));
+                }
+                else
+                {
+                    foreach (ListViewItem lst in listView1.Items)
+                    {
+                        if (lst.SubItems[0].Text == idNew)
+                        {
+                            listView1.Items.Remove(lst);
+                        }
+                    }
+                }
+                
+            }
+            catch
+            {
+            }
+        }
         private bool ascending = true;
         private int sortColumn = -1;
         private void listView1_ColumnClick(object sender, ColumnClickEventArgs e)
@@ -96,12 +165,9 @@ namespace projectit
         {
             try
             {
-                button3.Enabled = false;
                 ListViewItem selectedItem = listView1.SelectedItems[0];
                 Process selectedProcess = Process.GetProcessById(int.Parse(selectedItem.SubItems[1].Text));
                 selectedProcess.Kill();
-                await Task.Delay(500);
-                GetProcesses();
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -111,10 +177,6 @@ namespace projectit
             catch
             {
                 MessageBox.Show("Error Occurred While Killing Application.", "ProjectIT", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            finally
-            {
-                button3.Enabled = true;
             }
         }
 
@@ -132,6 +194,28 @@ namespace projectit
             catch
             {
                 MessageBox.Show("Error Occurred While Running Application.", "ProjectIT", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void killToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ListViewItem selectedItem = listView1.SelectedItems[0];
+                Process selectedProcess = Process.GetProcessById(int.Parse(selectedItem.SubItems[1].Text));
+                selectedProcess.Kill();
+            }
+            catch
+            {
+                MessageBox.Show("Error Occurred While Killing Application.", "ProjectIT", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 0)
+            {
+                e.Cancel = true;
             }
         }
     }
