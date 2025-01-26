@@ -11,6 +11,8 @@ using System.Net;
 using System.Net.Http;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -24,7 +26,8 @@ namespace projectit
 
         private ToolTip toolTip = new ToolTip();
 
-
+        [DllImport("iphlpapi.dll", ExactSpelling = true)]
+        public static extern int SendARP(int DestIP, int SrcIP, [Out] byte[] pMacAddr, ref int PhyAddrLen);
         public IpUserControl()
         {
             InitializeComponent();
@@ -58,7 +61,7 @@ namespace projectit
                 progressBar1.Maximum = progbarMinus;
 
                 string beginingIp = txtIp1.Text.Substring(0, txtIp1.Text.LastIndexOf("."));
-
+                string thisIp = Dns.GetHostByName(Dns.GetHostName()).AddressList[0].ToString();
                 for (int i = ipInt1; i <= ipInt2; i++)
                 {
 
@@ -66,15 +69,50 @@ namespace projectit
                     IPAddress my = IPAddress.Parse(result);
                     PingReply answer = await ping.SendPingAsync(my);
 
+                    
+
+
                     if (answer.Status == IPStatus.Success)
                     {
 
                         ip = result;
                         name = GetHostName(result);
 
-                        string[] _usedIps = [name, ip, mac];
-                        ListViewItem lst = new ListViewItem(_usedIps);
-                        listView1.Items.Add(lst);
+                        if (result == thisIp)
+                        {
+                            mac =
+                                (
+                                    from nic in NetworkInterface.GetAllNetworkInterfaces()
+                                    where nic.OperationalStatus == OperationalStatus.Up
+                                    select nic.GetPhysicalAddress().ToString()
+                                ).FirstOrDefault();
+                        }
+                        else
+                        {
+                            try
+                            {
+                                byte[] ab = new byte[6];
+                                int len = ab.Length,
+                                    r = SendARP((int)my.Address, 0, ab, ref len);
+                                mac = BitConverter.ToString(ab, 0, 6);
+                            }
+                            catch (DllNotFoundException)
+                            {
+                                MessageBox.Show("Error occurred while founding dll.");
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Error occurred");
+                            }
+                        }
+
+                        if (mac != string.Empty)
+                        {
+                            string[] _usedIps = [name, ip, mac];
+                            ListViewItem lst = new ListViewItem(_usedIps);
+                            listView1.Items.Add(lst);
+                        }
+                        
                     }
 
                     progressBar1.Value++;
