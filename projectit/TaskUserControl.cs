@@ -51,7 +51,7 @@ namespace projectit
                 {
                     pathNew = proc.MainModule.FileName;
                 }
-                catch(SecurityAccessDeniedException)
+                catch (SecurityAccessDeniedException)
                 {
                     pathNew = "Access Denied";
                 }
@@ -72,9 +72,8 @@ namespace projectit
                     listView1.Items.Add(new ListViewItem(lst));
                 }
             }
-            catch(Exception ex)
+            catch
             {
-                MessageBox.Show(ex.ToString());
             }
         }
         private void processStopWatcher_EventArrived(object sender, EventArrivedEventArgs e)
@@ -106,7 +105,7 @@ namespace projectit
                         }
                     }
                 }
-                
+
             }
             catch
             {
@@ -173,7 +172,7 @@ namespace projectit
                     string extension = Path.GetExtension(_path).ToLower();
                     _name += extension;
                 }
-                catch(SecurityAccessDeniedException)
+                catch (SecurityAccessDeniedException)
                 {
                     _path = "Access Denied";
                 }
@@ -183,7 +182,7 @@ namespace projectit
                 id = proc.Id;
                 _status = proc.Responding;
                 statusStr = _status ? "Working" : "No Responding";
-                
+
                 string[] _lst = [_name, id.ToString(), statusStr, _path];
                 ListViewItem lst = new ListViewItem(_lst);
                 listView1.Items.Add(lst);
@@ -245,6 +244,41 @@ namespace projectit
             if (listView1.SelectedItems.Count == 0)
             {
                 e.Cancel = true;
+            }
+            if (listView1.SelectedItems[0].SubItems[3].Text == string.Empty)
+            {
+                openFileLocationToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                openFileLocationToolStripMenuItem.Enabled = true;
+            }
+        }
+
+        private void openFileLocationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                try
+                {
+                    string pathSelected = listView1.SelectedItems[0].SubItems[3].Text;
+                    if (pathSelected != string.Empty)
+                    {
+                        if (Path.Exists(pathSelected))
+                        {
+                            Process.Start("explorer.exe", " /select, " + pathSelected);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Path doesnt exists.", "ProjectIT", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Error occurred while opening file path.", "ProjectIT", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
             }
         }
     }

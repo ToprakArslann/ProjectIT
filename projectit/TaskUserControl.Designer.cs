@@ -33,6 +33,7 @@
             name = new System.Windows.Forms.ColumnHeader();
             processId = new System.Windows.Forms.ColumnHeader();
             status = new System.Windows.Forms.ColumnHeader();
+            path = new System.Windows.Forms.ColumnHeader();
             contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(components);
             killToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             openFileLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,7 +42,6 @@
             button1 = new System.Windows.Forms.Button();
             button2 = new System.Windows.Forms.Button();
             textBox1 = new System.Windows.Forms.TextBox();
-            path = new System.Windows.Forms.ColumnHeader();
             contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -74,30 +74,35 @@
             status.Text = "Status";
             status.Width = 200;
             // 
+            // path
+            // 
+            path.Text = "Path";
+            // 
             // contextMenuStrip1
             // 
             contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { killToolStripMenuItem, openFileLocationToolStripMenuItem, propertiesToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new System.Drawing.Size(174, 70);
+            contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
             contextMenuStrip1.Opening += contextMenuStrip1_Opening;
             // 
             // killToolStripMenuItem
             // 
             killToolStripMenuItem.Name = "killToolStripMenuItem";
-            killToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            killToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             killToolStripMenuItem.Text = "Kill";
             killToolStripMenuItem.Click += killToolStripMenuItem_Click;
             // 
             // openFileLocationToolStripMenuItem
             // 
             openFileLocationToolStripMenuItem.Name = "openFileLocationToolStripMenuItem";
-            openFileLocationToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            openFileLocationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             openFileLocationToolStripMenuItem.Text = "Open File Location";
+            openFileLocationToolStripMenuItem.Click += openFileLocationToolStripMenuItem_Click;
             // 
             // propertiesToolStripMenuItem
             // 
             propertiesToolStripMenuItem.Name = "propertiesToolStripMenuItem";
-            propertiesToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            propertiesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             propertiesToolStripMenuItem.Text = "Properties";
             // 
             // button3
@@ -152,10 +157,6 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new System.Drawing.Size(180, 44);
             textBox1.TabIndex = 6;
-            // 
-            // path
-            // 
-            path.Text = "Path";
             // 
             // TaskUserControl
             // 
