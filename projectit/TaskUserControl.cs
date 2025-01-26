@@ -36,6 +36,8 @@ namespace projectit
         private void TaskUserControl_Load(object sender, EventArgs e)
         {
             listView1.Columns[3].Width = 0;
+            listView1.ListViewItemSorter = new ListViewItemComparer(name.Index , ascending);
+            listView1.Sort();
             GetProcesses();
         }
 
