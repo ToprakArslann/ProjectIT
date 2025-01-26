@@ -41,12 +41,13 @@
             button1 = new System.Windows.Forms.Button();
             button2 = new System.Windows.Forms.Button();
             textBox1 = new System.Windows.Forms.TextBox();
+            path = new System.Windows.Forms.ColumnHeader();
             contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // listView1
             // 
-            listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { name, processId, status });
+            listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { name, processId, status, path });
             listView1.ContextMenuStrip = contextMenuStrip1;
             listView1.FullRowSelect = true;
             listView1.Location = new System.Drawing.Point(0, 3);
@@ -77,26 +78,26 @@
             // 
             contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { killToolStripMenuItem, openFileLocationToolStripMenuItem, propertiesToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
+            contextMenuStrip1.Size = new System.Drawing.Size(174, 70);
             contextMenuStrip1.Opening += contextMenuStrip1_Opening;
             // 
             // killToolStripMenuItem
             // 
             killToolStripMenuItem.Name = "killToolStripMenuItem";
-            killToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            killToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             killToolStripMenuItem.Text = "Kill";
             killToolStripMenuItem.Click += killToolStripMenuItem_Click;
             // 
             // openFileLocationToolStripMenuItem
             // 
             openFileLocationToolStripMenuItem.Name = "openFileLocationToolStripMenuItem";
-            openFileLocationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            openFileLocationToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             openFileLocationToolStripMenuItem.Text = "Open File Location";
             // 
             // propertiesToolStripMenuItem
             // 
             propertiesToolStripMenuItem.Name = "propertiesToolStripMenuItem";
-            propertiesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            propertiesToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             propertiesToolStripMenuItem.Text = "Properties";
             // 
             // button3
@@ -152,6 +153,10 @@
             textBox1.Size = new System.Drawing.Size(180, 44);
             textBox1.TabIndex = 6;
             // 
+            // path
+            // 
+            path.Text = "Path";
+            // 
             // TaskUserControl
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -186,5 +191,6 @@
         private System.Windows.Forms.ToolStripMenuItem openFileLocationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem killToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem propertiesToolStripMenuItem;
+        private System.Windows.Forms.ColumnHeader path;
     }
 }

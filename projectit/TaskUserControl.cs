@@ -5,8 +5,10 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Management;
+using System.ServiceModel.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -30,8 +32,10 @@ namespace projectit
         private int id;
         private bool _status;
         private string statusStr;
+        private string _path;
         private void TaskUserControl_Load(object sender, EventArgs e)
         {
+            listView1.Columns[3].Width = 0;
             GetProcesses();
         }
 
@@ -39,12 +43,24 @@ namespace projectit
         {
             try
             {
+                string pathNew = "";
                 string nameNew = e.NewEvent.Properties["ProcessName"].Value.ToString();
                 int idNew = int.Parse(e.NewEvent.Properties["ProcessID"].Value.ToString());
                 Process proc = Process.GetProcessById(idNew);
+                try
+                {
+                    pathNew = proc.MainModule.FileName;
+                }
+                catch(SecurityAccessDeniedException)
+                {
+                    pathNew = "Access Denied";
+                }
+                catch
+                {
+                }
                 bool _statusNew = proc.Responding;
                 string statusStrNew = _statusNew ? "Working" : "No Responding";
-                string[] lst = [nameNew, idNew.ToString(), statusStrNew];
+                string[] lst = [nameNew, idNew.ToString(), statusStrNew, pathNew];
                 if (listView1.InvokeRequired)
                 {
                     listView1.Invoke(new Action(() =>
@@ -150,12 +166,25 @@ namespace projectit
 
             foreach (Process proc in processes)
             {
-
-                _name = proc.ProcessName.ToString();
+                _name = proc.ProcessName;
+                try
+                {
+                    _path = proc.MainModule.FileName;
+                    string extension = Path.GetExtension(_path).ToLower();
+                    _name += extension;
+                }
+                catch(SecurityAccessDeniedException)
+                {
+                    _path = "Access Denied";
+                }
+                catch
+                {
+                }
                 id = proc.Id;
                 _status = proc.Responding;
                 statusStr = _status ? "Working" : "No Responding";
-                string[] _lst = [_name, id.ToString(), statusStr];
+                
+                string[] _lst = [_name, id.ToString(), statusStr, _path];
                 ListViewItem lst = new ListViewItem(_lst);
                 listView1.Items.Add(lst);
             }
