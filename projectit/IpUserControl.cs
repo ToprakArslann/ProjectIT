@@ -39,6 +39,8 @@ namespace projectit
         private string name = "";
         private string mac = "";
         private string ip = "";
+        private string _status;
+        private Dictionary<string, string> data = new Dictionary<string, string>();
 
         // Searches The Local Ips.
         private async void button1_Click(object sender, EventArgs e)
@@ -64,14 +66,13 @@ namespace projectit
                 string thisIp = Dns.GetHostByName(Dns.GetHostName()).AddressList[0].ToString();
                 for (int i = ipInt1; i <= ipInt2; i++)
                 {
-
                     string result = beginingIp + "." + i.ToString();
                     IPAddress my = IPAddress.Parse(result);
                     PingReply answer = await ping.SendPingAsync(my);
 
+                    mac = string.Empty;
+                    name = string.Empty;
                     
-
-
                     if (answer.Status == IPStatus.Success)
                     {
 
@@ -106,13 +107,32 @@ namespace projectit
                             }
                         }
 
-                        if (mac != string.Empty)
+                        _status = "Unknown";
+
+                        if (!string.IsNullOrEmpty(mac))
                         {
-                            string[] _usedIps = [name, ip, mac];
-                            ListViewItem lst = new ListViewItem(_usedIps);
-                            listView1.Items.Add(lst);
+                            _status = "Active";
+                            data[ip] = mac;
                         }
                         
+
+                        string[] _usedIps = [name, ip, mac, _status];
+                        ListViewItem lst = new ListViewItem(_usedIps);
+                        listView1.Items.Add(lst);
+
+                        
+                    }
+                    else
+                    {
+                        _status = "Unknown";
+                        if (data.ContainsKey(result))
+                        {
+                            _status = "Dead";
+                            mac = data[result];
+                        }
+                        string[] _usedIps = [name, result, mac, _status];
+                        ListViewItem lst = new ListViewItem(_usedIps);
+                        listView1.Items.Add(lst);
                     }
 
                     progressBar1.Value++;
