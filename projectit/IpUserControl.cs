@@ -161,7 +161,7 @@ namespace projectit
             if (checkConnection.Status == IPStatus.Success)
             {
                 string hostname = Dns.GetHostName();
-                string thisIp = Dns.GetHostByName(hostname).AddressList[0].ToString();
+                string thisIp = Dns.GetHostEntry(hostname).AddressList.FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork).ToString();
                 txtIp1.Enabled = true;
                 numericUpDown1.Enabled = true;
                 button1.Enabled = true;
