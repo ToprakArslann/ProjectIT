@@ -132,9 +132,20 @@ namespace projectit
                             _status = "Dead";
                             mac = data[result];
                         }
-                        string[] _usedIps = [name, result, mac, _status];
-                        ListViewItem lst = new ListViewItem(_usedIps);
-                        listView1.Items.Add(lst);
+
+                        if (deadToolStripMenuItem.Checked && _status == "Dead")
+                        {
+                            string[] _usedIps = [name, result, mac, _status];
+                            ListViewItem lst = new ListViewItem(_usedIps);
+                            listView1.Items.Add(lst);
+                        } else if (unknownToolStripMenuItem.Checked && _status == "Unknown")
+                        {
+                            string[] _usedIps = [name, result, mac, _status];
+                            ListViewItem lst = new ListViewItem(_usedIps);
+                            listView1.Items.Add(lst);
+                        }
+                        
+                        
                     }
 
                     progressBar1.Value++;
