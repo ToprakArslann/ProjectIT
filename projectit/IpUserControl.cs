@@ -87,6 +87,8 @@ namespace projectit
                                     where nic.OperationalStatus == OperationalStatus.Up
                                     select nic.GetPhysicalAddress().ToString()
                                 ).FirstOrDefault();
+
+                            mac = string.Join("-", Enumerable.Range(0, mac.Length / 2).Select(i => mac.Substring(i * 2, 2)));
                         }
                         else
                         {
