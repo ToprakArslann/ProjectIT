@@ -31,6 +31,14 @@
             txtIp1 = new System.Windows.Forms.TextBox();
             button1 = new System.Windows.Forms.Button();
             panel1 = new System.Windows.Forms.Panel();
+            listView1 = new System.Windows.Forms.ListView();
+            nameCol = new System.Windows.Forms.ColumnHeader();
+            ipCol = new System.Windows.Forms.ColumnHeader();
+            macCol = new System.Windows.Forms.ColumnHeader();
+            button2 = new System.Windows.Forms.Button();
+            label1 = new System.Windows.Forms.Label();
+            progressBar1 = new System.Windows.Forms.ProgressBar();
+            numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             panel2 = new System.Windows.Forms.Panel();
             label12 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -55,17 +63,10 @@
             button3 = new System.Windows.Forms.Button();
             label8 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
-            listView1 = new System.Windows.Forms.ListView();
-            nameCol = new System.Windows.Forms.ColumnHeader();
-            ipCol = new System.Windows.Forms.ColumnHeader();
-            macCol = new System.Windows.Forms.ColumnHeader();
-            button2 = new System.Windows.Forms.Button();
-            label1 = new System.Windows.Forms.Label();
-            progressBar1 = new System.Windows.Forms.ProgressBar();
-            numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            status = new System.Windows.Forms.ColumnHeader();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // txtIp1
@@ -108,6 +109,80 @@
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(507, 367);
             panel1.TabIndex = 6;
+            // 
+            // listView1
+            // 
+            listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { nameCol, ipCol, macCol, status });
+            listView1.FullRowSelect = true;
+            listView1.GridLines = true;
+            listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            listView1.Location = new System.Drawing.Point(3, 104);
+            listView1.MultiSelect = false;
+            listView1.Name = "listView1";
+            listView1.Size = new System.Drawing.Size(498, 260);
+            listView1.TabIndex = 8;
+            listView1.UseCompatibleStateImageBehavior = false;
+            listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // nameCol
+            // 
+            nameCol.DisplayIndex = 1;
+            nameCol.Text = "Name";
+            nameCol.Width = 90;
+            // 
+            // ipCol
+            // 
+            ipCol.DisplayIndex = 2;
+            ipCol.Text = "Ip";
+            ipCol.Width = 150;
+            // 
+            // macCol
+            // 
+            macCol.DisplayIndex = 3;
+            macCol.Text = "Mac Address";
+            macCol.Width = 254;
+            // 
+            // button2
+            // 
+            button2.BackColor = System.Drawing.Color.FromArgb(52, 52, 52);
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button2.ForeColor = System.Drawing.Color.White;
+            button2.Location = new System.Drawing.Point(456, 25);
+            button2.Margin = new System.Windows.Forms.Padding(6);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(45, 43);
+            button2.TabIndex = 4;
+            button2.Text = "⟳";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(3, 65);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(0, 25);
+            label1.TabIndex = 7;
+            // 
+            // progressBar1
+            // 
+            progressBar1.Location = new System.Drawing.Point(3, 5);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new System.Drawing.Size(498, 10);
+            progressBar1.TabIndex = 0;
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Enabled = false;
+            numericUpDown1.Location = new System.Drawing.Point(250, 31);
+            numericUpDown1.Maximum = new decimal(new int[] { 30, 0, 0, 0 });
+            numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new System.Drawing.Size(92, 31);
+            numericUpDown1.TabIndex = 6;
+            numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // panel2
             // 
@@ -351,76 +426,11 @@
             label11.TabIndex = 8;
             label11.Text = "Is Hosting";
             // 
-            // listView1
+            // status
             // 
-            listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { nameCol, ipCol, macCol });
-            listView1.FullRowSelect = true;
-            listView1.GridLines = true;
-            listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            listView1.Location = new System.Drawing.Point(3, 104);
-            listView1.MultiSelect = false;
-            listView1.Name = "listView1";
-            listView1.Size = new System.Drawing.Size(498, 260);
-            listView1.TabIndex = 8;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // nameCol
-            // 
-            nameCol.Text = "Name";
-            nameCol.Width = 90;
-            // 
-            // ipCol
-            // 
-            ipCol.Text = "Ip";
-            ipCol.Width = 150;
-            // 
-            // macCol
-            // 
-            macCol.Text = "Mac Address";
-            macCol.Width = 254;
-            // 
-            // button2
-            // 
-            button2.BackColor = System.Drawing.Color.FromArgb(52, 52, 52);
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button2.ForeColor = System.Drawing.Color.White;
-            button2.Location = new System.Drawing.Point(456, 25);
-            button2.Margin = new System.Windows.Forms.Padding(6);
-            button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(45, 43);
-            button2.TabIndex = 4;
-            button2.Text = "⟳";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(3, 65);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(0, 25);
-            label1.TabIndex = 7;
-            // 
-            // progressBar1
-            // 
-            progressBar1.Location = new System.Drawing.Point(3, 5);
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new System.Drawing.Size(498, 10);
-            progressBar1.TabIndex = 0;
-            // 
-            // numericUpDown1
-            // 
-            numericUpDown1.Enabled = false;
-            numericUpDown1.Location = new System.Drawing.Point(250, 31);
-            numericUpDown1.Maximum = new decimal(new int[] { 30, 0, 0, 0 });
-            numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new System.Drawing.Size(92, 31);
-            numericUpDown1.TabIndex = 6;
-            numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            status.DisplayIndex = 0;
+            status.Text = "Status";
+            status.Width = 100;
             // 
             // IpUserControl
             // 
@@ -436,9 +446,9 @@
             Load += IpUserControl_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
         }
 
@@ -478,5 +488,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         public System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ColumnHeader status;
     }
 }
