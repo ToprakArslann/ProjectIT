@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             txtIp1 = new System.Windows.Forms.TextBox();
             button1 = new System.Windows.Forms.Button();
             panel1 = new System.Windows.Forms.Panel();
@@ -35,6 +36,7 @@
             nameCol = new System.Windows.Forms.ColumnHeader();
             ipCol = new System.Windows.Forms.ColumnHeader();
             macCol = new System.Windows.Forms.ColumnHeader();
+            status = new System.Windows.Forms.ColumnHeader();
             button2 = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
             progressBar1 = new System.Windows.Forms.ProgressBar();
@@ -63,10 +65,14 @@
             button3 = new System.Windows.Forms.Button();
             label8 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
-            status = new System.Windows.Forms.ColumnHeader();
+            contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(components);
+            activeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            deadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            unknownToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             panel2.SuspendLayout();
+            contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // txtIp1
@@ -114,6 +120,7 @@
             // 
             listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { nameCol, ipCol, macCol, status });
+            listView1.ContextMenuStrip = contextMenuStrip1;
             listView1.FullRowSelect = true;
             listView1.GridLines = true;
             listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
@@ -142,6 +149,12 @@
             macCol.DisplayIndex = 3;
             macCol.Text = "Mac Address";
             macCol.Width = 254;
+            // 
+            // status
+            // 
+            status.DisplayIndex = 0;
+            status.Text = "Status";
+            status.Width = 100;
             // 
             // button2
             // 
@@ -426,11 +439,34 @@
             label11.TabIndex = 8;
             label11.Text = "Is Hosting";
             // 
-            // status
+            // contextMenuStrip1
             // 
-            status.DisplayIndex = 0;
-            status.Text = "Status";
-            status.Width = 100;
+            contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { activeToolStripMenuItem, deadToolStripMenuItem, unknownToolStripMenuItem });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
+            // 
+            // activeToolStripMenuItem
+            // 
+            activeToolStripMenuItem.Checked = true;
+            activeToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            activeToolStripMenuItem.Enabled = false;
+            activeToolStripMenuItem.Name = "activeToolStripMenuItem";
+            activeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            activeToolStripMenuItem.Text = "Active";
+            // 
+            // deadToolStripMenuItem
+            // 
+            deadToolStripMenuItem.CheckOnClick = true;
+            deadToolStripMenuItem.Name = "deadToolStripMenuItem";
+            deadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            deadToolStripMenuItem.Text = "Dead";
+            // 
+            // unknownToolStripMenuItem
+            // 
+            unknownToolStripMenuItem.CheckOnClick = true;
+            unknownToolStripMenuItem.Name = "unknownToolStripMenuItem";
+            unknownToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            unknownToolStripMenuItem.Text = "Unknown";
             // 
             // IpUserControl
             // 
@@ -449,6 +485,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -489,5 +526,9 @@
         private System.Windows.Forms.Label label12;
         public System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ColumnHeader status;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem activeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem unknownToolStripMenuItem;
     }
 }
